@@ -1,7 +1,7 @@
 
 Summary: A git GUI viewer
 Name: qgit
-Version: 1.5.5
+Version: 1.5.6
 Release: %mkrel 1
 Source0: http://ovh.dl.sourceforge.net/sourceforge/qgit/%{name}-%{version}.tar.bz2
 License: GPL
