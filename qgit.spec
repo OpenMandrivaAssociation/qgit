@@ -7,6 +7,7 @@ Source0: http://ovh.dl.sourceforge.net/sourceforge/qgit/%{name}-%{version}.tar.b
 License: GPL
 Group: Development/Other
 Url: http://sourceforge.net/projects/qgit
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: scons 
 BuildRequires: qt3-devel
 Requires: git-core
