@@ -10,7 +10,7 @@ Group: Development/Other
 Url: http://sourceforge.net/projects/qgit
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: scons
-BuildRequires: qt3-devel
+BuildRequires: qt4-devel
 Requires: git-core
 
 %define qtdir /usr/lib/qt4
