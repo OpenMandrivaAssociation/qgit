@@ -1,10 +1,11 @@
 
 Summary: A git GUI viewer
 Name: qgit
-Version: 2.2
+Version: 2.3
 Release: %mkrel 1
 Source0: http://ovh.dl.sourceforge.net/sourceforge/qgit/%{name}-%{version}.tar.bz2
 Patch0: %{name}-2.2-qmake.patch
+Patch1: %{name}-2.3-fix-format.patch
 License: GPL
 Group: Development/Other
 Url: http://sourceforge.net/projects/qgit
@@ -33,9 +34,7 @@ Main features
 %prep
 %setup -q -n %{name}
 %patch0 -p1 -b .qmake
-
-# fix permissions
-chmod a-x src/*.{cpp,h}
+%patch1 -p1 -b .fix-format
 
 %build
 qmake %{name}.pro
