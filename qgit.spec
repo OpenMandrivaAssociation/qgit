@@ -2,7 +2,7 @@
 Summary: A git GUI viewer
 Name: qgit
 Version: 2.3
-Release: %mkrel 1
+Release: 2
 Source0: http://ovh.dl.sourceforge.net/sourceforge/qgit/%{name}-%{version}.tar.bz2
 Patch0: %{name}-2.2-qmake.patch
 Patch1: %{name}-2.3-fix-format.patch
