@@ -1,20 +1,19 @@
 
 Summary: A git GUI viewer
 Name: qgit
-Version: 2.3
-Release: 2
-Source0: http://ovh.dl.sourceforge.net/sourceforge/qgit/%{name}-%{version}.tar.bz2
-Patch0: %{name}-2.2-qmake.patch
-Patch1: %{name}-2.3-fix-format.patch
+Version: 2.10
+Release: 1
+Source0: https://github.com/tibirna/qgit/archive/refs/tags/qgit-%{version}.tar.gz
 License: GPL
 Group: Development/Other
 Url: http://sourceforge.net/projects/qgit
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: scons
-BuildRequires: qt4-devel
+BuildRequires: qt5-devel
+BuildRequires:	cmake ninja
 Requires: git-core
 
-%define qtdir /usr/lib/qt4
+%define qtdir /usr/lib/qt5
 
 %description
 With qgit you will be able to browse revisions history, view patch content
@@ -32,22 +31,19 @@ Main features
   picking single modified files.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1 -b .qmake
-%patch1 -p1 -b .fix-format
+%autosetup -p1 -n %{name}-%{name}-%{version}
+%cmake_qt5 \
+	-G Ninja
 
 %build
-qmake %{name}.pro
-%make
+%ninja_build -C build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make install INSTALL_ROOT=$RPM_BUILD_ROOT
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+%ninja_install -C build
 
 %files
 %defattr(-,root,root)
-%doc README
 %{_bindir}/qgit
+%{_datadir}/applications/qgit.desktop
+%{_datadir}/icons/hicolor/*/apps/qgit.*
+%{_datadir}/metainfo/qgit.appdata.xml
