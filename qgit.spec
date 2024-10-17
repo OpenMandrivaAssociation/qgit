@@ -6,7 +6,7 @@ Release: 1
 Source0: https://github.com/tibirna/qgit/archive/refs/tags/qgit-%{version}.tar.gz
 License: GPL
 Group: Development/Other
-Url: http://sourceforge.net/projects/qgit
+Url: https://sourceforge.net/projects/qgit
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: scons
 BuildRequires: qt5-devel
