@@ -1,7 +1,7 @@
 
 Summary: A git GUI viewer
 Name: qgit
-Version: 2.11
+Version: 2.12
 Release: 1
 Source0: https://github.com/tibirna/qgit/archive/refs/tags/qgit-%{version}.tar.gz
 License: GPL
