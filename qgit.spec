@@ -8,12 +8,15 @@ License: GPL
 Group: Development/Other
 Url: https://sourceforge.net/projects/qgit
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: scons
-BuildRequires: qt5-devel
-BuildRequires:	cmake ninja
+BuildRequires: cmake(Qt6)
+BuildRequires: cmake(Qt6Core)
+BuildRequires: cmake(Qt6Core5Compat)
+BuildRequires: cmake(Qt6Gui)
+BuildRequires: cmake(Qt6Widgets)
 Requires: git-core
 
-%define qtdir /usr/lib/qt5
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 With qgit you will be able to browse revisions history, view patch content
@@ -29,17 +32,6 @@ Main features
   and apply/format patches. You can also create new patches or refresh
   current top one using the same semantics of git commit, i.e. cherry
   picking single modified files.
-
-%prep
-%autosetup -p1 -n %{name}-%{name}-%{version}
-%cmake_qt5 \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
 
 %files
 %defattr(-,root,root)
